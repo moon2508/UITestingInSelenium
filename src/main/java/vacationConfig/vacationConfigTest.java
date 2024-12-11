@@ -32,7 +32,21 @@ public class vacationConfigTest {
             driver.get("http://192.168.100.198:8038/cau-hinh-nghi-phep");
             Thread.sleep(1000);
             vacationConfigPage.enterVacationDrop();
+        }
+            @Test(priority=1)
 
+            public void test_Home_Page_Appear_fail() throws InterruptedException {
+                //Create Login Page object
+                loginPage page = new loginPage(driver);
+                page.enterPassword("0355273394");
+                page.enterUsername("123123");
+                page.clickLogin();
+                Thread.sleep(1000);
+                vacationConfigPage vacationConfigPage = new vacationConfigPage(driver);
+                vacationConfigPage.forwardHRM();
+                driver.get("http://192.168.100.198:8038/cau-hinh-nghi-phep");
+                Thread.sleep(1000);
+                vacationConfigPage.enterVacationDrop();
 
 
     }
